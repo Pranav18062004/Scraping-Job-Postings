@@ -4,7 +4,6 @@ import requests
 html_text = requests.get(url="https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=").text
 soup = BeautifulSoup(html_text, 'lxml')
 jobs = soup.find_all('li', class_ = 'clearfix job-bx wht-shd-bx')
-job_name_dict = {}
 for job in jobs:
     time_posted = job.find('span', class_ = 'sim-posted').text
     if 'few' in time_posted:
